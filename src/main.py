@@ -1,46 +1,65 @@
 import shodan
 import sys
-import search_ip
+import shodan_actions
 import set_colors
 import os
+import choose
+import prints
+import time
+import checks
+import get_key
 
-
-
-#database integration for safety about reverse engineering
-API_KEY = "MhalN3iyvINULCeGPcweV1Kfz6jIxZLs"
 
 #main functions calls other functions
 def main():
 
+    #get the key
+    API_KEY = get_key.read_file()
+
     #call the login functions for connecting to the api
-    api = login()
 
-    while not api[1]:
-        print("waiting for api")
-        sleep(1)
+    api = login(API_KEY)
 
-    menu()
+    time.sleep(1)
+
+    #prints the welcome message
+    prints.print_welcome()
+
+    time.sleep(1)
+    menu(api)
 
 
 #performs the login with the api_key
-def login():
+def login(key):
 
     #make connection
-    api_con = shodan.Shodan(API_KEY)
+    api_con = shodan.Shodan(key)
 
     #return the api_key
-    return api_con, True
+    return api_con
 
 
 #select menu for different options
-def menu():
+def menu(api):
 
-    #printing message for the user
-    os.system("cowsay -f gnu Thanks for using open-shodan | lolcat")
+    try:
+        #get input what user wants
+        tmp_opt = str(input())
 
-    print(set_colors.C_GREEN + "\nHow can I help you my Master\n----------------------------------------\n")
+    except KeyboardInterrupt:
+        exit(1)
 
-    print("you don't know the commands? use the ->help<- command")
+    #checks if user inputs is in command list
+    checked = checks.check_command(tmp_opt)
+
+    if checked == True:
+        #sends choice at choose.py if command is right
+        choose.decide(tmp_opt, api)
+        menu(api)
+
+    else:
+        menu(api)
+
 
 
 #calling the main function
