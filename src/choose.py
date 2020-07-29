@@ -7,13 +7,15 @@ import prints
 #decides what is called next
 def decide(cmd_str, api):
 
+
     #if command is sip calls search ip function
-    if cmd_str == "sip":
-        shodan_actions.search_ip(api)
+    if cmd_str[0] == "sip":
+        shodan_actions.search_ip(api, cmd_str[1])
 
     #if command is help calls help function to print infos
-    elif cmd_str == "help":
+    elif cmd_str[0] == "help":
         prints.print_help()
-    
-    else:
-        exit(1)
+
+    #if command is srch calls search function
+    elif cmd_str[0] == "srch":
+        shodan_actions.search(api, cmd_str[1])

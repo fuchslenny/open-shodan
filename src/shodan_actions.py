@@ -4,25 +4,16 @@ import set_colors
 
 
 #search for specific ips
-def search_ip(api):
+def search_ip(api, cmd_str):
+    pass
 
-    #user input
-    try:
-        inp = str(input())
 
-    except KeyboardInterrupt:
-        exit(1)
+#normal api search
+def search(api, cmd_str):
+    print(set_colors.C_YELLOW + cmd_str)
 
-    try:
+    """
+    search_res = api.search(search_str)
 
-        # Perform the search
-        query = ' '.join(inp)
-        search_res = api.search(query)
-
-        # Loop through the matches and print each IP
-        for service in search_res['matches']:
-                print(service['ip_str'])
-
-    except Exception as e:
-        print(e)
-        exit(1)
+    print(search_res)
+"""

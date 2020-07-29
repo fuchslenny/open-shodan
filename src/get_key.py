@@ -9,5 +9,7 @@ def read_file():
     #reads the content
     api_key = file.read()
 
+    key = api_key.replace(" ", "")
+
     #returns the key
-    return api_key
+    return key
