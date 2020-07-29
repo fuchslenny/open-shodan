@@ -1,6 +1,7 @@
 import os
 import set_colors
 import random
+import checks
 
 #prints the welcome message
 def print_welcome():
@@ -30,10 +31,18 @@ def print_welcome():
     print(set_colors.C_YELLOW + "\nDo it or don't do it. There is no trying. ~Master Yoda\n------------------------------------------------------")
 
     #print help command if someone is new to Open-Shodan
-    print("You don't know the commands? Use ->help<-\n")
+    print("You don't know the commands? Use 'help'\n")
 
 
 #prints the help about the commands
 def print_help():
 
-    print("Coming soon ...")
+    explanation_list = ["Search for a IP",
+                   "Search for a Keyword",
+                   "Get the help you are reading right now",
+                   "Quit the program"]
+
+    for command in checks.command_list:
+        for explanation in explanation_list:
+
+            print(set_colors.C_YELLOW + command + " ---> " + explanation)

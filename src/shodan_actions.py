@@ -17,3 +17,10 @@ def search(api, cmd_str):
 
     print(search_res)
 """
+
+
+#quits the program if  called
+def quit_program():
+    #last mesage before quitting the program
+    print(set_colors.C_YELLOW + "See you next time young Padawan")
+    exit(1)
