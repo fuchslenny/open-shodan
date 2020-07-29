@@ -7,9 +7,10 @@ def read_file():
     file = open("mykey.txt", "r")
 
     #reads the content
-    api_key = file.read()
+    api_key = str(file.readline())
 
-    key = api_key.replace(" ", "")
+    #delete whitespaces
+    key = api_key.strip()
 
     #returns the key
     return key

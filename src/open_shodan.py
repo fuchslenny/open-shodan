@@ -50,7 +50,7 @@ def menu(api):
 
     try:
         #get input what user wants
-        tmp_opt = str(input(set_colors.C_RED + "--> "))
+        tmp_opt = str(input(set_colors.C_RED + "> "))
 
     except KeyboardInterrupt:
         exit(1)

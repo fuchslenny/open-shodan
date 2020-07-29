@@ -7,6 +7,7 @@ global C_PURPLE
 global C_MAGENTA
 global C_CYAN
 global C_LPURPLE
+global C_WHITE
 
 C_GREEN = "\033[32m"
 C_RED = "\033[91m"
@@ -15,3 +16,4 @@ C_PURPLE = "\033[95m"
 C_MAGENTA = "\033[35m"
 C_CYAN = "\033[36m"
 C_LPURPLE = "\033[94m"
+C_WHITE = "\033[97m"
