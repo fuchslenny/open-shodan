@@ -33,8 +33,13 @@ def main():
 #performs the login with the api_key
 def login(key):
 
-    #make connection
-    api_con = shodan.Shodan(key)
+    try:
+        #make connection
+        api_con = shodan.Shodan(key)
+
+    except Exception:
+        #if throws exception api key is not valid
+        print(set_colors.C_YELLOW + "API KEY IS NOT VALID")
 
     #return the api_key
     return api_con
