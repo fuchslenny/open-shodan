@@ -39,7 +39,7 @@ def login(key):
 
     except Exception:
         #if throws exception api key is not valid
-        print(set_colors.C_YELLOW + "API KEY IS NOT VALID")
+        print(set_colors.C_YELLOW + "[-] API KEY IS NOT VALID")
 
     #return the api_key
     return api_con
@@ -70,7 +70,7 @@ def menu(api):
     else:
 
         #if checked command is false return to menu and output thats a wrong command
-        print(set_colors.C_YELLOW + "NOT A VALID COMMAND MY PADAWAN")
+        print(set_colors.C_YELLOW + "[-] NOT A VALID COMMAND MY PADAWAN")
 
         menu(api)
 

@@ -1,6 +1,7 @@
 import os
 import sys
-
+import socket
+import set_colors
 global command_list
 
 command_list = ["sip", "srch", "help", "quit"]
@@ -27,3 +28,21 @@ def check_command(cmd_str):
     else:
         #returns False if command not in list
         return False
+
+
+#check if
+def check_ip(ip):
+
+    try:
+        #check if ip address is valid by looking for a
+        ip = ipaddress.ip_address(sys.argv[1])
+
+    except Exception:
+        #if exception is thrown the ip is invalid
+        print(set_colors.C_YELLOW + "[-] INVALID IP ADDRESS")
+
+        return False
+
+    print(set_colors.C_YELLOW + "[*] Loading...")
+
+    return True

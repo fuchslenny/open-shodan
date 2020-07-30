@@ -10,7 +10,7 @@ def decide(cmd_str, api):
 
     #if command is sip calls search ip function
     if cmd_str[0] == "sip":
-        shodan_actions.search_ip(api, cmd_str[1])
+        shodan_actions.search_host(api, cmd_str[1])
 
     #if command is help calls help function to print infos
     elif cmd_str[0] == "help":
