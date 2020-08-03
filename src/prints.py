@@ -2,6 +2,8 @@ import os
 import set_colors
 import random
 import checks
+import time
+import sys
 
 #prints the welcome message
 def print_welcome():
@@ -46,3 +48,29 @@ def print_help():
         for explanation in explanation_list:
 
             print(set_colors.C_YELLOW + command + " ---> " + explanation)
+
+
+
+#prints the empty key message
+def no_key():
+
+    #print message
+    print(set_colors.C_YELLOW + "Please set the API to use Open-Shodan\nContact us on Github")
+
+
+#print loading
+def loading():
+
+    sys.stdout.write('['+' '*10+']  0%')
+    sys.stdout.flush()
+
+    for i in range(10):
+        time.sleep(0.2)
+        sys.stdout.write('\b'*(15-i) + '=')
+
+        if(i < 9):
+            sys.stdout.write('>')
+        sys.stdout.write(' '*(8-i) + '] ' + str(i+1) + '0%')
+        sys.stdout.flush()
+
+    sys.stdout.write('\b\b\b\bDone!\n')

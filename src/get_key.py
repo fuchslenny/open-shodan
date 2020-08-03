@@ -1,4 +1,5 @@
-
+import prints
+import sys
 
 #reads the file to get the shodan api key from the user
 def read_file():
@@ -12,5 +13,16 @@ def read_file():
     #delete whitespaces
     key = api_key.strip()
 
-    #returns the key
-    return key
+    #check that there is a key
+    if key != "":
+
+        #returns the key
+        return key
+
+    #if key is empty print that the key must be set
+    else:
+
+        #call print function
+        prints.no_key()
+
+        exit(1)

@@ -26,7 +26,10 @@ def main():
     #prints the welcome message
     prints.print_welcome()
 
-    time.sleep(1)
+    #loading
+    prints.loading()
+
+    #time.sleep(1)
     menu(api)
 
 
@@ -37,9 +40,9 @@ def login(key):
         #make connection
         api_con = shodan.Shodan(key)
 
-    except Exception:
+    except Exception as e:
         #if throws exception api key is not valid
-        print(set_colors.C_YELLOW + "[-] API KEY IS NOT VALID")
+        print(set_colors.C_YELLOW + "[-] ERROR: " + e)
 
     #return the api_key
     return api_con
